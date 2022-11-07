@@ -191,13 +191,15 @@ omnetpp = executable('omnetpp',
     'simulator/platdep'
   ],
   install : true)
+install_subdir('data',
+  install_dir : get_option('datadir') / 'omnetpp')
 test('basic',
   omnetpp,
   args : [
     '-f',
-    join_paths(meson.project_source_root(), 'data/test/input/omnetpp.ini'),
+    meson.project_source_root() / 'data/test/input/omnetpp.ini',
     '--ned-path',
-    join_paths(meson.project_source_root(), 'data/all/input/ned'),
+    meson.project_source_root() / 'data/all/input/ned',
     '--result-dir',
     meson.project_build_root()
   ])
