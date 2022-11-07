@@ -7,7 +7,7 @@ add_global_arguments(
   '-DWITH_NETBUILDER',
   '-DSPEC_AUTO_SUPPRESS_OPENMP',
   language : 'cpp')
-executable('omnetpp',
+omnetpp = executable('omnetpp',
   'simulator/fileoutscalarmgr.cc',
   'simulator/xmlgenerator.cc',
   'simulator/cdisplaystring.cc',
@@ -191,3 +191,13 @@ executable('omnetpp',
     'simulator/platdep'
   ],
   install : true)
+test('basic',
+  omnetpp,
+  args : [
+    '-f',
+    join_paths(meson.project_source_root(), 'data/test/input/omnetpp.ini'),
+    '--ned-path',
+    join_paths(meson.project_source_root(), 'data/all/input/ned'),
+    '--result-dir',
+    meson.project_build_root()
+  ])
