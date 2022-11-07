@@ -1,0 +1,26 @@
+2009-02-27  ------ omnetpp-4.0rc2 released ------
+
+2008-12-12  ------ omnetpp-4.0rc1 released ------
+
+2006-10-21  ------ omnetpp-3.3 released ------
+
+2006-01-12  ------ omnetpp-3.2p1 released ------
+
+2005-10-19  ------ omnetpp-3.2 released ------
+
+2005-07-09  Andras Varga
+
+	* time.h: added opp_asctime() which produces string representation
+	of time time in "yyyy-mm-dd hh:mm:ss" format
+
+2005-03-31  ------ omnetpp-3.1 released ------
+
+2005-01-10  Andras Varga
+
+	* created platdep/ subdirectory, and factored out most platform 
+	dependencies and related utility functions from all parts of 
+	OMNeT++/OMNEST to header files in here. Notable exceptions are 
+	coroutines (in src/sim) and named pipes	(in src/sim/parsim), where 
+	platform differences could not be levelled out by just a few #ifdefs, 
+	#defines and inline functions.
+
